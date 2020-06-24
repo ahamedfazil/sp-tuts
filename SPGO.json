@@ -1,0 +1,6 @@
+{
+  "sourceDirectory": "src",
+  "sharePointSiteUrl": "https://fazilsp.sharepoint.com/teams/SP2013Dev/",
+  "publishingScope": "SaveOnly",
+  "remoteFolders": ["/SiteAssets/"]
+}

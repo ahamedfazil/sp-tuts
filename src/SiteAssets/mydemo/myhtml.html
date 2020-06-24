@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <link
+    rel="stylesheet"
+    href="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/mycss.css"
+  />
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.SPServices/2014.02/jquery.SPServices-2014.02.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sp-pnp-js/3.0.10/pnp.js"></script>
+
+  <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/apiServiceDemo.js"></script>
+  <!-- <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/basics2.js"></script> -->
+
+  <body>
+    <h1>API - Demo</h1>
+    <div id="demo" class="my-style">
+      <div>
+        Title Field:
+        <br />
+        <input type="text" id="titleId" />
+        <br />
+        <br />
+        <input type="button" value="Add by JSOM" onclick="AddingItemByJSOM()" />
+        <br />
+        <br />
+        <input type="button" value="Add by REST" onclick="AddingItemByREST()" />
+        <br />
+        <br />
+        <input
+          type="button"
+          value="Add by SP Service"
+          onclick="AddingItemBySPService()"
+        />
+        <br />
+        <br />
+        <input type="button" value="Add by PnP" onclick="AddingItemByPnP()" />
+      </div>
+    </div>
+  </body>
+</html>
+<!-- ctr + / -> to comment -->
+<!-- ctr + \ -> to uncomment -->
