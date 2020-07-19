@@ -20,8 +20,17 @@ async function textFieldOperation() {
 async function choiceFieldOperation() {
   try {
     // Update/Add Dropdown field
+
+    var weatherElement = document.getElementById('weather');
+    console.log(
+      'Faz: Log: choiceFieldOperation -> weatherElement',
+      weatherElement
+    );
+    var selectedValue =
+      weatherElement.options[weatherElement.selectedIndex].value;
+
     $pnp.sp.web.lists.getByTitle('My Test').items.add({
-      MyChoice: 'Summer',
+      MyChoice: selectedValue,
     });
 
     // Update/Add Radio field
@@ -39,7 +48,7 @@ async function choiceFieldOperation() {
 
     // Update/Add Checkbox single choice field (Yes/No)
     $pnp.sp.web.lists.getByTitle('My Test').items.add({
-      MyCheckbox: '0',
+      MyCheckbox: false,
     });
 
     alert('Successfully added choice fields');
@@ -65,13 +74,13 @@ async function dateField() {
 async function personField() {
   try {
     // Update/Add People Picker single user
-    const myUserId = getUserIDFromPP('fazil@fazilsp.onmicrosoft.com');
+    const myUserId = await getUserIDFromPP('fazil@fazilsp.onmicrosoft.com');
     $pnp.sp.web.lists.getByTitle('My Test').items.add({
       MyPersonId: myUserId,
     });
 
     // Update/Add People Picker multi user
-    const otherUserId = getUserIDFromPP('rabi@fazilsp.onmicrosoft.com');
+    const otherUserId = await getUserIDFromPP('rabi.k@fazilsp.onmicrosoft.com');
     $pnp.sp.web.lists.getByTitle('My Test').items.add({
       UsersId: {
         results: [myUserId, otherUserId],
@@ -115,7 +124,7 @@ async function lookupField() {
     // Update/Add Multi lookup field
     $pnp.sp.web.lists.getByTitle('My Test').items.add({
       manyshopsId: {
-        results: [1, 2],
+        results: [2, 3],
       },
     });
     alert('Successfully added lookup field');
@@ -134,22 +143,11 @@ function addDays(date, days) {
 
 async function getUserIDFromPP(pplValue) {
   let userID = null;
-  if (pplValue.length > 0) {
-    if (
-      pplValue[0].secondaryText &&
-      pplValue[0].secondaryText !== 'null' &&
-      pplValue[0].secondaryText !== ''
-    ) {
-      await $pnp.sp.web
-        .ensureUser(pplValue[0].secondaryText)
-        .then((results) => {
-          userID = results.data.Id;
-        });
-    } else {
-      await $pnp.sp.web.ensureUser(pplValue[0].key).then((results) => {
-        userID = results.data.Id;
-      });
-    }
+  if (pplValue !== '') {
+    await $pnp.sp.web.ensureUser(pplValue).then((results) => {
+      console.log('Faz: Log: getUserIDFromPP -> results', results);
+      userID = results.data.Id;
+    });
   }
   return userID;
 }
