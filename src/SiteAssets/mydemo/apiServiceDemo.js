@@ -68,18 +68,36 @@ function AddingItemBySPService() {
   });
 }
 
-function AddingItemByPnP() {
-  var titleVal = $('#titleId').val();
+async function AddingItemByPnP() {
+  try {
+    var titleVal = $('#titleId').val(); // 1
 
-  $pnp.sp.web.lists
-    .getByTitle('My Test')
-    .items.add({
-      Title: titleVal,
-    })
-    .then(function (data) {
-      alert('Successfully added by PnP');
-    })
-    .catch((error) => {
-      alert('Error while adding.');
-    });
+    var thisismytitle = '';
+
+    const myItem = await $pnp.sp.web.lists
+      .getByTitle('My Test')
+      .items.getbyId(2);
+    thisismytitle = item;
+
+    // $pnp.sp.web.lists.getByTitle('My Test').items.getbyId(2)
+    //   .then((item) => {
+    //     thisismytitle = item;
+    //     console.log(thisismytitle);
+    //   })
+    //   .catch((err) => {
+    //     console.log('Faz: Log: AddingItemByPnP -> err', err);
+    //   }); // 2
+
+    console.log(thisismytitle); // 3
+
+    var anotherTitle = 'dummy'; // 4
+
+    // .then(function (data) { alert('Successfully added by PnP');
+    //   })
+    //   .catch((error) => {
+    //     alert('Error while adding.');
+    //   });
+  } catch (error) {
+    alert('Error while adding.');
+  }
 }

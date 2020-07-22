@@ -1,3 +1,14 @@
 #demo {
   background-color: lightcyan;
 }
+
+.crud {
+  background-color: lightcoral !important;
+}
+
+.fields {
+  background-color: lightslategrey;
+}
+.filters {
+  background-color: mistyrose;
+}

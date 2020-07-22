@@ -10,7 +10,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sp-pnp-js/3.0.10/pnp.js"></script>
 
   <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/apiServiceDemo.js"></script>
-  <!-- <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/basics2.js"></script> -->
+  <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/pnp_CRUD.js"></script>
+  <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/Update_Fields_usingpnp.js"></script>
+  <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/filtering_inpnp.js"></script>
 
   <body>
     <h1>API - Demo</h1>
@@ -35,6 +37,94 @@
         <br />
         <br />
         <input type="button" value="Add by PnP" onclick="AddingItemByPnP()" />
+      </div>
+      <br />
+      <br />
+      <div class="crud">
+        CRUD Operations - PnP JS
+        <br />
+        <input type="button" value="Get Items" onclick="readSPListItem()" />
+        <br />
+        <br />
+        <input type="button" value="Update Item" onclick="quickDemo()" />
+        <br />
+        <br />
+        <input
+          type="button"
+          value="Update Dynamic Item"
+          onclick="getDynamicListItem()"
+        />
+        <br />
+        <br />
+        <input type="button" value="Add Item" onclick="createItemByPnP()" />
+        <br />
+        <br />
+        <input
+          type="button"
+          value="Delete by PnP"
+          onclick="deleteSPListItemById()"
+        />
+      </div>
+      <br />
+      <br />
+      <div class="fields">
+        All Field Operations - PnP JS
+        <br />
+        <input
+          type="button"
+          value="Text Fields"
+          onclick="textFieldOperation()"
+        />
+        <br />
+        <br />
+
+        <select name="weather" id="weather">
+          <option value="Summer">Summer</option>
+          <option value="Winter">Winter is heavy</option>
+          <option value="Spring">Spring</option>
+        </select>
+
+        <input
+          type="button"
+          value="Choice Fields"
+          onclick="choiceFieldOperation()"
+        />
+        <br />
+        <br />
+        <input type="button" value="Date Field" onclick="dateField()" />
+        <br />
+        <br />
+        <input type="button" value="Person Field" onclick="personField()" />
+        <br />
+        <br />
+        <input
+          type="button"
+          value="Hyperlink Field"
+          onclick="hyperlinkField()"
+        />
+        <br />
+        <br />
+        <input type="button" value="Lookup Field" onclick="lookupField()" />
+        <br />
+        <br />
+      </div>
+      <div class="filters">
+        Fetching By Filter - PnP JS
+        <br />
+        <input
+          type="button"
+          value="OData Filter"
+          onclick="getListItemsByOdata()"
+        />
+        <br />
+        <br />
+        <input
+          type="button"
+          value="CAML Query"
+          onclick="getListItemsByCAML()"
+        />
+        <br />
+        <br />
       </div>
     </div>
   </body>
