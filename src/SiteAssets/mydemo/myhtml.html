@@ -12,6 +12,7 @@
   <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/apiServiceDemo.js"></script>
   <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/pnp_CRUD.js"></script>
   <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/Update_Fields_usingpnp.js"></script>
+  <script src="https://fazilsp.sharepoint.com/teams/SP2013Dev/SiteAssets/mydemo/filtering_inpnp.js"></script>
 
   <body>
     <h1>API - Demo</h1>
@@ -42,7 +43,6 @@
       <div class="crud">
         CRUD Operations - PnP JS
         <br />
-        <br />
         <input type="button" value="Get Items" onclick="readSPListItem()" />
         <br />
         <br />
@@ -69,7 +69,6 @@
       <br />
       <div class="fields">
         All Field Operations - PnP JS
-        <br />
         <br />
         <input
           type="button"
@@ -106,6 +105,24 @@
         <br />
         <br />
         <input type="button" value="Lookup Field" onclick="lookupField()" />
+        <br />
+        <br />
+      </div>
+      <div class="filters">
+        Fetching By Filter - PnP JS
+        <br />
+        <input
+          type="button"
+          value="OData Filter"
+          onclick="getListItemsByOdata()"
+        />
+        <br />
+        <br />
+        <input
+          type="button"
+          value="CAML Query"
+          onclick="getListItemsByCAML()"
+        />
         <br />
         <br />
       </div>
